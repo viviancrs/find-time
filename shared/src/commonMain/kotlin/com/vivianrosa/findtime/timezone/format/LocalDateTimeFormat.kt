@@ -1,4 +1,4 @@
-package com.vivianrosa.findtime.timezone
+package com.vivianrosa.findtime.timezone.format
 
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
