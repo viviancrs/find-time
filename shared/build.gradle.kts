@@ -12,6 +12,9 @@ kotlin {
         }
     }
 
+    ios()
+    iosSimulatorArm64()
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -24,13 +27,22 @@ kotlin {
     }
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.datetime)
-            implementation(libs.napier)
+        val commonMain by getting {
+            kotlin.srcDirs("src/commonMain/kotlin")
+            dependencies {
+                implementation(libs.datetime)
+                implementation(libs.napier)
+            }
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        val androidMain by getting {
+            kotlin.srcDirs("src/androidMain/kotlin")
         }
+        val iosMain by getting {
+            kotlin.srcDirs("src/iosMain/kotlin")
+        }
+        val iosTest by getting
+        val iosSimulatorArm64Main by getting
+        val iosSimulatorArm64Test by getting
     }
 }
 

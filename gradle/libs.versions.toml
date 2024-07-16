@@ -1,21 +1,32 @@
 [versions]
 agp = "8.2.2"
-kotlin = "1.9.20"
-compose = "1.5.4"
-compose-compiler = "1.5.4"
-compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+kotlin = "1.9.10"
+compose = "1.5.3"
+compose-compiler = "1.5.3"
+compose-material3 = "1.2.0-alpha09"
+androidx-activityCompose = "1.9.0"
+material = "1.6.0-alpha07"
 kotlinxDateTime = "0.6.0"
 napier = "2.6.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+#AndroidX
+
+#Compose
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+
+#Material
+material-icons = { module = "androidx.compose.material:material-icons-core", version.ref = "compose" }
+material-iconsExtended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+material = { module = "androidx.compose.material:material", version.ref = "material"}
 
 # DateTime
 datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref ="kotlinxDateTime"}
@@ -28,4 +39,3 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
