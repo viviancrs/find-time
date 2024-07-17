@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -18,7 +19,6 @@ import androidx.compose.ui.unit.dp
 fun TimeCard(timezone: String, hours: Double, time: String, date: String) {
     Box(
         modifier = Modifier
-//        .fillMaxSize()
             .height(120.dp)
             .background(Color.White)
             .padding(8.dp)
@@ -33,7 +33,7 @@ fun TimeCard(timezone: String, hours: Double, time: String, date: String) {
                     .background(color = Color.White)
                     .padding(16.dp)
             ) {
-                Row(modifier = Modifier.fillMaxWidth()) {
+                Row() {
                     ZoneColumn(timezone = timezone, hours = hours)
                     Spacer(modifier = Modifier.weight(1.0f))
                     DateTimeColumn(date = date, time = time)
@@ -49,7 +49,10 @@ private fun ZoneColumn(timezone: String, hours: Double) {
         Text(
             timezone,
             style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onSurface,
+            modifier = Modifier.fillMaxWidth(0.7f),
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1
         )
         Spacer(modifier = Modifier.weight(1.0f))
         Row {
@@ -74,5 +77,5 @@ private fun DateTimeColumn(date: String, time: String) {
 @Preview
 @Composable
 fun Preview() {
-    TimeCard("BR", hours = 12.0, time = "16:20", date = "Saturday, July 8")
+    TimeCard("America/Argentina/Catamarca", hours = 12.0, time = "16:20", date = "Saturday, July 8")
 }
