@@ -1,4 +1,4 @@
-package com.vivianrosa.findtime.android.ui
+package com.vivianrosa.findtime.android.ui.screens.main
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -25,6 +25,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.vivianrosa.findtime.android.MyApplicationTheme
+import com.vivianrosa.findtime.android.ui.EmptyComposable
+import com.vivianrosa.findtime.android.ui.dialogs.AddTimeZoneDialog
+import com.vivianrosa.findtime.android.ui.screens.timezone.TimeZoneScreen
+import com.vivianrosa.findtime.android.ui.topBarFun
 
 sealed class Screen(val title: String) {
     data object TimeZoneScreen : Screen("Timezones")
@@ -74,14 +78,29 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
             }
         ) { padding ->
             Box(modifier = Modifier.padding(padding)) {
-
+                if (showAddDialog.value) {
+                    AddTimeZoneDialog(
+                        onAdd = { newTimeZones ->
+                            showAddDialog.value = false
+                            for (zone in newTimeZones) {
+                                if (!currentTimezoneStrings.contains(zone)) {
+                                    currentTimezoneStrings.add(zone)
+                                }
+                            }
+                        },
+                        onDismiss = { showAddDialog.value = false }
+                    )
+                }
+                when (selectedIndex.intValue) {
+                    0 -> TimeZoneScreen(currentTimezoneStrings)
+                }
             }
         }
     }
 }
 
 @Composable
-fun AddTimeZoneButton(onClick: () -> Unit) {
+private fun AddTimeZoneButton(onClick: () -> Unit) {
     FloatingActionButton(
         modifier = Modifier.padding(16.dp),
         shape = FloatingActionButtonDefaults.largeShape,
@@ -93,7 +112,7 @@ fun AddTimeZoneButton(onClick: () -> Unit) {
 }
 
 @Composable
-fun BottomBar(selectedIndex: Int, onClick: (selectedIndex: Int) -> Unit) {
+private fun BottomBar(selectedIndex: Int, onClick: (selectedIndex: Int) -> Unit) {
     NavigationBar(containerColor = MaterialTheme.colorScheme.primary) {
         bottomNavigationItems.forEachIndexed { i, bottomNavigationItem ->
             NavigationBarItem(

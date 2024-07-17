@@ -11,7 +11,7 @@ import kotlinx.datetime.format.byUnicodePattern
 
 fun LocalDateTime.getFormattedDate(): String {
     return date.format(LocalDate.Format {
-        dayOfWeek(DayOfWeekNames.ENGLISH_ABBREVIATED)
+        dayOfWeek(DayOfWeekNames.ENGLISH_FULL)
         chars(", ")
         monthName(MonthNames.ENGLISH_FULL)
         chars(" ")
