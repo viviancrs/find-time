@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -56,8 +57,16 @@ private fun ZoneColumn(timezone: String, hours: Double) {
         )
         Spacer(modifier = Modifier.weight(1.0f))
         Row {
-            Text(hours.toString(), style = MaterialTheme.typography.labelSmall)
-            Text(" hours from local", style = MaterialTheme.typography.bodySmall)
+            Text(
+                hours.toString(),
+                style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
+                color = Color.Black
+            )
+            Text(
+                " hours from local",
+                style = MaterialTheme.typography.bodySmall,
+                color = Color.Black
+            )
         }
     }
 }
@@ -65,12 +74,9 @@ private fun ZoneColumn(timezone: String, hours: Double) {
 @Composable
 private fun DateTimeColumn(date: String, time: String) {
     Column(horizontalAlignment = Alignment.End) {
-        Text(
-            text = time, style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        Text(text = time, style = MaterialTheme.typography.headlineSmall, color = Color.Black)
         Spacer(modifier = Modifier.weight(1.0f))
-        Text(text = date, style = MaterialTheme.typography.bodySmall)
+        Text(text = date, style = MaterialTheme.typography.bodySmall, color = Color.Black)
     }
 }
 

@@ -15,8 +15,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.vivianrosa.findtime.android.ui.screens.timezone.components.AnimatedSwipeDismiss
-import com.vivianrosa.findtime.android.ui.screens.timezone.components.DismissBackground
+import com.vivianrosa.findtime.android.ui.components.AnimatedSwipeDismiss
+import com.vivianrosa.findtime.android.ui.components.DismissBackground
 import com.vivianrosa.findtime.android.ui.screens.timezone.components.LocalTimeCard
 import com.vivianrosa.findtime.android.ui.screens.timezone.components.TimeCard
 import com.vivianrosa.findtime.timezone.TimeZoneHelper

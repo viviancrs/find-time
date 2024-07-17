@@ -19,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.vivianrosa.findtime.android.endGradientColor
+import com.vivianrosa.findtime.android.startGradientColor
 
 @Composable
 fun LocalTimeCard(
@@ -43,13 +45,13 @@ fun LocalTimeCard(
                     .background(
                         brush = Brush.horizontalGradient(
                             colors = listOf(
-                                MaterialTheme.colorScheme.surface,
-                                MaterialTheme.colorScheme.inverseSurface
+                                startGradientColor,
+                                endGradientColor,
                             )
                         )
                     )
                     .padding(8.dp)
-            )  {
+            ) {
                 Row(modifier = Modifier.fillMaxWidth()) {
                     CityColumn(city = city)
                     Spacer(modifier = Modifier.weight(1.0f))
@@ -64,17 +66,9 @@ fun LocalTimeCard(
 private fun DateTimeColumn(date: String, time: String) {
     Column(horizontalAlignment = Alignment.End) {
         Spacer(modifier = Modifier.weight(1.0f))
-        Text(
-            text = time,
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        Text(text = time, style = MaterialTheme.typography.headlineSmall)
         Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = date,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        Text(text = date, style = MaterialTheme.typography.bodySmall)
         Spacer(modifier = Modifier.height(8.dp))
     }
 }
@@ -83,17 +77,9 @@ private fun DateTimeColumn(date: String, time: String) {
 private fun CityColumn(city: String) {
     Column(horizontalAlignment = Alignment.Start) {
         Spacer(modifier = Modifier.weight(1.0f))
-        Text(
-            text = "Your Location",
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        Text(text = "Your Location", style = MaterialTheme.typography.bodySmall)
         Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text = city,
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        Text(text = city, style = MaterialTheme.typography.headlineSmall)
         Spacer(modifier = Modifier.height(8.dp))
     }
 }

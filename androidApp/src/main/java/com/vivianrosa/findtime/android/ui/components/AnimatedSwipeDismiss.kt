@@ -1,4 +1,4 @@
-package com.vivianrosa.findtime.android.ui.screens.timezone.components
+package com.vivianrosa.findtime.android.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition

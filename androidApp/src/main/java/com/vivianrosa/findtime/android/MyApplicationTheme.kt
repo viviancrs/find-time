@@ -15,6 +15,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+val startGradientColor = Color(0xFF1e88e5)
+val endGradientColor = Color(0xFF005cb2)
 
 @Composable
 fun MyApplicationTheme(
@@ -25,17 +27,13 @@ fun MyApplicationTheme(
         darkColorScheme(
             primary = Color(0xFF005cb2),
             onPrimary = Color.White,
-            secondary = Color(0xFF00766c),
-            surface = Color(0xFF1e88e5),
-            inverseSurface = Color(0xFF005cb2)
+            secondary = Color(0xFF00766c)
         )
     } else {
         lightColorScheme(
             primary = Color(0xFF1e88e5),
             onPrimary = Color.Black,
-            secondary = Color(0xFF26a69a),
-            surface = Color(0xFF1e88e5),
-            inverseSurface = Color(0xFF005cb2)
+            secondary = Color(0xFF26a69a)
         )
     }
     val typography = Typography(
@@ -43,21 +41,25 @@ fun MyApplicationTheme(
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
+            color = Color.White
         ),
         headlineSmall = TextStyle(
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
+            color = Color.White
         ),
         labelLarge = TextStyle(
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.Normal,
             fontSize = 20.sp,
+            color = Color.White
         ),
         labelSmall = TextStyle(
             fontFamily = FontFamily.SansSerif,
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal,
+            fontSize = 11.sp,
+            color = Color.White
         ),
     )
     val shapes = Shapes(

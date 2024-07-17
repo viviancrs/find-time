@@ -1,4 +1,4 @@
-package com.vivianrosa.findtime.android.ui.dialogs
+package com.vivianrosa.findtime.android.ui.components.dialogs
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

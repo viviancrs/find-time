@@ -26,8 +26,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.vivianrosa.findtime.android.MyApplicationTheme
 import com.vivianrosa.findtime.android.ui.EmptyComposable
-import com.vivianrosa.findtime.android.ui.dialogs.AddTimeZoneDialog
+import com.vivianrosa.findtime.android.ui.components.dialogs.AddTimeZoneDialog
 import com.vivianrosa.findtime.android.ui.screens.timezone.TimeZoneScreen
+import com.vivianrosa.findtime.android.ui.screens.findmeetingtime.FindMeetingTimeScreen
 import com.vivianrosa.findtime.android.ui.topBarFun
 
 sealed class Screen(val title: String) {
@@ -93,6 +94,7 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
                 }
                 when (selectedIndex.intValue) {
                     0 -> TimeZoneScreen(currentTimezoneStrings)
+                    1 -> FindMeetingTimeScreen(currentTimezoneStrings)
                 }
             }
         }
