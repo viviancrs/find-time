@@ -73,7 +73,7 @@ struct TimezoneView: View {
 
 struct TimezoneView_Previews: PreviewProvider {
     static var timezoneItems: TimezoneItems {
-        var timezoneItems = TimezoneItems()
+        let timezoneItems = TimezoneItems()
         timezoneItems.timezones.append("Africa/Accra")
         timezoneItems.timezones.append("Africa/Algiers")
         timezoneItems.selectedTimezones.insert("Africa/Accra")

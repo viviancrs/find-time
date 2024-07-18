@@ -19,9 +19,7 @@ struct TimezoneApp: App {
         appearance.backgroundColor = .systemBlue
 
         UITabBar.appearance().standardAppearance = appearance
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
+        UITabBar.appearance().scrollEdgeAppearance = appearance
     }
 
 	var body: some Scene {
